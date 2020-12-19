@@ -11,13 +11,13 @@ import os
 import biom
 
 
-def test_reduced_dims(df_fixed, response, embeddings, n_dims, names, f = 'rf'):
+def test_reduced_dims(df_fixed, response, sims, n_dims, names, f = 'rf'):
     """
     reduces the dimensions by aggregating based on DNABert cluster similarity (given similarity matrix)
     Returns ROC plot data and AUC for each cluster size
     """
-    cm = AC(n_clusters = int(n_dims), affinity = 'cosine', linkage='average')
-    cm.fit(embeddings)
+    cm = AC(n_clusters = int(n_dims), affinity = 'precomputed', linkage='average')
+    cm.fit(1 - sims)
     names['cluster'] = cm.labels_
     
     reduced = df_fixed.copy()
