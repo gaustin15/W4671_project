@@ -134,3 +134,4 @@ dmypy.json
 *.tsv
 *.png
 *.fasta
+*.npy
