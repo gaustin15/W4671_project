@@ -22,12 +22,34 @@ python3 -m pip install --editable .
 cd examples
 python3 -m pip install -r requirements.txt
 cd ../..
-conda install -c bioconda sumaclust 
+conda install -c bioconda sumaclust
+conda install -c bioconda biom-format
+conda install -c anaconda matplotlib 
 conda install seaborn
-conda install -c anaconda ipykernel 
+conda install -c anaconda ipykernel
 python -m ipykernel install --user --name=dnabert
 ```
-To run each notebook, the corresponding dataset must de downloaded and unzipped in the `MicrobiomeHD/` folder. 
+To downloading the DNABert Model, follow the link below, which is also provided by the original DNABERT paper. Hit the download button at the top right of the window. Once the zipped file is downloaded, move it to the same directoy where all the above repos were cloned to.
+
+[DNABERT6](https://northwestern.box.com/s/g8m974tr86h0pvnpymxq84f1yxlhnvbi)
+
+Next, unzip the file. We didn't like the name of the file, so execute the mv command to rename it.
+```
+unzip 6-new-12w-0.zip
+mv 6-new-12w-0 DNABERT_model_6
+```
+
+Downloading the data
+-------------------
+To run each notebook, the dataset must de downloaded and unzipped in the `MicrobiomeHD/` folder. They all come from (https://zenodo.org/record/569601#.X94xcC3Mzxs), but they can be downloaded and unzipped with the following commands:
+```
+cd MicrobiomeHD_data
+curl -O https://zenodo.org/record/569601/files/crc_xiang_results.tar.gz?download=1
+curl -O https://zenodo.org/record/569601/files/crc_baxter_results.tar.gz?download=1 
+curl -O https://zenodo.org/record/569601/files/crc_xiang_results.tar.gz?download=1
+tar -xf crc*download*
+rm crc*download*
+```
 
 
 Outline of .py Files
@@ -42,9 +64,9 @@ Outline of .ipynb Files
 All notebook files are running different clusters + predictions for different colorectal cancer datasets from MicrobiomeHD. As there are some slight differences across how data is stored from different studies, the preprocessing was kept within each notebook separately. All Notebooks are set up to run on a cpu, and do not require any additional computational power. One potential exception is the crc_large_dataset, which will run on a cpu, but it takes ~1 hour. All notebooks save plots to the `Results` folder, which are shown in the report.
 | Notebook | Description |
 |--|--|
-| `CRC_zhao_prediction` | Runs clustering and predictions on MicrobiomeHD's crc_zhao... dataset (denoted as Dataset 1 in the report). Before running this file, download/unzip that file within a `MicrobiomeHD_data` folder that is outside the repo (see the relative paths in the notebooks for reference).  |
-| `CRC_large_dataset_prediction` | Runs clustering and predictions on MicrobiomeHD's crc_baxter... dataset (denoted as Dataset 2 in the report). Before running this file, download/unzip that file within a `MicrobiomeHD_data` folder that is outside the repo (see the relative paths in the notebooks for reference). The notebook saves plots to the `Results` folder, which are shown in the report. |
-| `CRC_xiang_prediction` | Runs clustering and predictions on MicrobiomeHD's crc_xiang... dataset (denoted as Dataset 3 in the report). Before running this file, download/unzip that file within a `MicrobiomeHD_data` folder that is outside the repo (see the relative paths in the notebooks for reference).  |
+| `CRC_zhao_prediction` | Runs clustering and predictions on MicrobiomeHD's crc_zhao... dataset (denoted as Dataset 1 in the report).  |
+| `CRC_large_dataset_prediction` | Runs clustering and predictions on MicrobiomeHD's crc_baxter... dataset (denoted as Dataset 2 in the report) |
+| `CRC_xiang_prediction` | Runs clustering and predictions on MicrobiomeHD's crc_xiang... dataset (denoted as Dataset 3 in the report).|
 
 
 
