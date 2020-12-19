@@ -1,6 +1,6 @@
 # W4671_project
 
-This repo has work for the W4671 final project. The goal is to explore how using DNABERT encodings on RNA reads can improve the representation of gut microbiome datasets. This is being explored through implementing hierarchal clustering of the otus based on the similarity of the encoded reads. we compare the performance of data clustered via DNABERT hierarchical clustering to the same data after it is clustered by sumaclust (https://git.metabarcoding.org/obitools/sumaclust/wikis/home). We focused on using the OTU clusters to predict colorectal cancer (CRC) from microbiome samples. All data used in the analysis is from MicrobiomeHD (https://zenodo.org/record/569601#.X94xcC3Mzxs).
+This repo has work for the W4671 final project. The goal is to explore how using DNABERT encodings on RNA reads can improve the representation of gut microbiome datasets. This is being explored through implementing hierarchal clustering of the otus based on the similarity of the encoded reads. We compare the performance of data clustered via DNABERT hierarchical clustering to the same data after it is clustered by sumaclust (https://git.metabarcoding.org/obitools/sumaclust/wikis/home). We focused on using the OTU clusters to predict colorectal cancer (CRC) from microbiome samples. All data used in the analysis is from MicrobiomeHD (https://zenodo.org/record/569601#.X94xcC3Mzxs).
 
 Setting up the Environment
 -------------------------
