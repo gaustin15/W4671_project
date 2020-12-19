@@ -4,7 +4,7 @@ This repo has work for the W4671 final project. The goal is to explore how using
 
 Setting up the Environment
 -------------------------
-Most of the environment setup follows the DNABERT instructions at https://github.com/jerryji1993/DNABERT. The full setup for this project is outlined below (note the relative paths for the cloned repos and created folders are important, so be sure to run the commands in the order outlined below):
+Most of the environment setup follows the DNABERT instructions at https://github.com/jerryji1993/DNABERT. This project requires a few other packages, so we provide the complete setup for this project below (note the relative paths for the cloned repos and created folders are important, so be sure to run the commands in the order outlined below):
 
 Create Environment
 ```
@@ -29,6 +29,9 @@ conda install seaborn
 conda install -c anaconda ipykernel
 python -m ipykernel install --user --name=dnabert
 ```
+
+Downloading DNABERT Model
+-----------------------
 To downloading the DNABert Model, follow the link below, which is also provided by the original DNABERT paper. Hit the download button at the top right of the window. Once the zipped file is downloaded, move it to the same directoy where all the above repos were cloned to.
 
 [DNABERT6](https://northwestern.box.com/s/g8m974tr86h0pvnpymxq84f1yxlhnvbi)
@@ -44,13 +47,14 @@ Downloading the data
 To run each notebook, the dataset must de downloaded and unzipped in the `MicrobiomeHD/` folder. They all come from (https://zenodo.org/record/569601#.X94xcC3Mzxs), but they can be downloaded and unzipped with the following commands:
 ```
 cd MicrobiomeHD_data
-curl -O https://zenodo.org/record/569601/files/crc_xiang_results.tar.gz?download=1
-curl -O https://zenodo.org/record/569601/files/crc_baxter_results.tar.gz?download=1 
-curl -O https://zenodo.org/record/569601/files/crc_xiang_results.tar.gz?download=1
-tar -xf crc*download*
-rm crc*download*
+curl -O https://zenodo.org/record/569601/files/crc_zhao_results.tar.gz?download=1 crc_zhao_results.tar.gz
+curl -O https://zenodo.org/record/569601/files/crc_baxter_results.tar.gz?download=1 crc_baxter_results.tar.gz
+curl -O https://zenodo.org/record/569601/files/crc_xiang_results.tar.gz?download=1 crc_xiang_results.tar.gz
+tar -xf crc_baxter_results.tar*
+tar -xf crc_xiang_results.tar*
+tar -xf crc_zhao_results.tar*
+rm crc*tar.g*
 ```
-
 
 Outline of .py Files
 ----------------
@@ -61,7 +65,7 @@ Outline of .py Files
 
 Outline of .ipynb Files
 ---------------------
-All notebook files are running different clusters + predictions for different colorectal cancer datasets from MicrobiomeHD. As there are some slight differences across how data is stored from different studies, the preprocessing was kept within each notebook separately. All Notebooks are set up to run on a cpu, and do not require any additional computational power. One potential exception is the crc_large_dataset, which will run on a cpu, but it takes ~1 hour. All notebooks save plots to the `Results` folder, which are shown in the report.
+All notebook files are running different clusters + predictions for different colorectal cancer datasets from MicrobiomeHD. As there are some slight differences across how data is stored from different studies, the preprocessing was kept within each notebook separately. All Notebooks are set up to run on a cpu, and do not require any additional computational power. One potential exception is the crc_large_dataset, which will run on a cpu, but it takes ~1 hour. All notebooks save plots to the `Results` folder, which are shown in the report. If all the setup commands outlined abov are completed, these notebooks will run. Make sure to have selected the dnabert kernel within the noetbooks. 
 | Notebook | Description |
 |--|--|
 | `CRC_zhao_prediction` | Runs clustering and predictions on MicrobiomeHD's crc_zhao... dataset (denoted as Dataset 1 in the report).  |
