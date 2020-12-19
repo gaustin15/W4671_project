@@ -36,7 +36,7 @@ To downloading the DNABert Model, follow the link below, which is also provided 
 
 [DNABERT6](https://northwestern.box.com/s/g8m974tr86h0pvnpymxq84f1yxlhnvbi)
 
-Next, unzip the file. We didn't like the name of the file, so execute the mv command to rename it.
+Next, unzip the file. We didn't like the name of the file, so we execute the mv command to rename it.
 ```
 unzip 6-new-12w-0.zip
 mv 6-new-12w-0 DNABERT_model_6
